@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Lynd</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <link rel="apple-touch-icon" href="assets/img/icon.png">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script type="text/javascript">
+    var socketHost = '{{socketHost}}'
+    var development = '{{development}}'
+  </script>
+  <script src="/libs/jquery.js"></script>
+  <script src="/libs/path.min.js"></script>
+  <script src="/libs/underscore.js"></script>
+  <script src="/libs/socket.io.js"></script>
+  <script src='/libs/knockout-2.2.1.js'></script>
+  <script src="/libs/koExternalTemplateEngine_all.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $('.flip-btn').click(function () {
+        $('.flip-login').toggleClass('flipped');
+      });
+    });
+  </script>
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35006728-3']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-35006728-3', 'lynd.me');
+    ga('send', 'pageview');
+
+  </script>
+</head>
+<body style="height: 100%">
+<div id="main-panel" style="height: 100%">
+  <div class="header-container" data-bind="template: { name: headerBar().template(), data: headerBar }">
+  </div>
+  <div class="main-container front-page" style="height: 100%">
+    <div class="main wrapper clearfix" data-bind="template: { name: mainContent().template(), data: mainContent, afterRender: init }">
+    </div>
+  </div>
+</div>
+</body>
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+<script src="/koBindings/fileUpload.ko.js"></script>
+
+<script src="/utilities/helpers.js"></script>
+<script src="/utilities/socketSetup.js"></script>
+
+<script src="/views/BetaView.js"></script>
+<script src="/views/BlankView.js"></script>
+<script src="/views/SplashPageView.js"></script>
+<script src="/views/SplashPageHeaderView.js"></script>
+
+<script src="/betaApp.js"></script>

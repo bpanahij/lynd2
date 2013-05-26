@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Lynd</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/js/ratchet/touch-icons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/js/ratchet/touch-icons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/js/ratchet/touch-icons/apple-touch-icon-57x57.png">
+
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/js/ratchet/ratchet.css">
+  <link rel="stylesheet" href="assets/css/sidemenu.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+
+  <script type="text/javascript" src="assets/js/ratchet/ratchet.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/js/sidemenu.js"></script>
+  <script type="application/javascript" src="assets/js/iscroll.js?v4"></script>
+  <script type="application/javascript" src="assets/js/knockout-2.2.1.js"></script>
+  <script type="application/javascript" src="assets/js/templastore.js"></script>
+  <script type="application/javascript" src="assets/app/app.js"></script>
+</head>
+<body class="cbp-spmenu-push">
+<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+  <h3>Menu</h3>
+  <a href="#">My Profile</a>
+  <a href="#">Listings</a>
+  <a href="#">Reservations</a>
+</nav>
+<div class="container">
+  <div class="main">
+    <section class="bar-title">
+      <nav id="menu-button" class="button">menu</nav>
+      <h1 class="title"><img height="40px" src="assets/img/logo.png"></h1>
+    </section>
+    <nav class="bar-standard bar-header-secondary">
+      <form>
+        <input type="search" placeholder="Search">
+      </form>
+    </nav>
+    <div class="content">
+      <div id="wrapper">
+        <div id="scroller">
+          <ul id="search_results" class="list">
+            <!-- ko template: { name: 'searchResult', foreach: results } -->
+
+            <!-- /ko -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
