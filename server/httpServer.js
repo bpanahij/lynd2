@@ -8,7 +8,7 @@ module.exports = function (routeModules) {
   this.initialize = function (callback) {
     server.use(express.static(__dirname + '/../client'));
     server.use(express.cookieParser());
-    server.set('views', __dirname + '/../client/');
+    server.set('views', __dirname + '/views/');
     server.set('view engine', 'html');
     server.engine('html', require('hbs').__express)
     _.each(this.routeModules, function (routeModule) {
@@ -21,17 +21,9 @@ module.exports = function (routeModules) {
       facebookAppId: config.current().facebook.appId,
       switches: config.current().switches
     };
-    server.get('/beta', function (req, res) {
-      res.locals = locals
-      res.render('newIndex')
-    });
-    server.get('/dev', function (req, res) {
-      res.locals = locals
-      res.render('index_dev')
-    });
     server.get('/', function (req, res) {
       res.locals = locals
-      res.render('search')
+      res.render('index')
     });
     server.listen(config.current().http.port, config.current().http.host)
     callback()

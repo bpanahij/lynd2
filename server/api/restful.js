@@ -73,14 +73,6 @@
     req.end ()
   }
   restful.discover = function (name, internals, data, callback) {
-//    var apiEndpoint = _.find (internals, function (endpoint) {
-//      var mapped = _.map (endpoint.fields.required, function (regex, key) {
-//        return _.has (this, key) === true
-//          && ! _.isUndefined(this[key])
-//          && ! _.isNull(this[key].match (regex))
-//      }, data)
-//      return _.compact(mapped).length === _.size(this)
-//    }, data)
     var apiEndpoint = internals[name];
     if (_.isUndefined (apiEndpoint)) {
       callback (new Error ('Endpoint Not Found'), {})

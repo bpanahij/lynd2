@@ -14,11 +14,11 @@
 }
 
 .cbp-spmenu a {
-    display: block;
-    color: #fff;
-    font-size: 1.1em;
-    font-weight: 300;
-}
+     display: block;
+     color: #fff;
+     font-size: 1.1em;
+     font-weight: 300;
+ }
 
 .cbp-spmenu a:hover {
     background: #258ecd;
@@ -27,6 +27,23 @@
 .cbp-spmenu a:active {
     background: #afdefa;
     color: #47a3da;
+}
+
+.cbp-spmenu a.callToAction {
+    background: red;
+    display: block;
+    color: darkred;
+    font-size: 1.1em;
+    font-weight: 300;
+}
+
+.cbp-spmenu a.callToAction:hover {
+    background: indianred;
+}
+
+.cbp-spmenu a.callToAction:active {
+    background: indianred;
+    color: darkred;
 }
 
 /* Orientation-dependent styles for the content of the menu */

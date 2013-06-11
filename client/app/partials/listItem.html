@@ -1,0 +1,43 @@
+<div class="well">
+  <form ng-submit="saveListing()" class="form-horizontal">
+    <div class="input-row">
+      <label><i class="icon-money"></i> Title</label>
+      <input ng-model="title" id="inputTitle" type="text" class="input-xlarge" placeholder="Title">
+    </div>
+    <label><i class="icon-money"></i> Location</label>
+    <div class="input-row">
+      <input ng-model="location" class="input-block-level" type="text" placeholder="Location" list="locations">
+      <datalist id="locations">
+        <option ng-repeat="location in locations" value="{{location.address}}">
+      </datalist>
+    </div>
+    <div class="input-row">
+      <label><i class="icon-money"></i> Daily Rate</label>
+      <select ng-model="price" class="span1">
+        <option ng-repeat="price in prices" value="{{price}}">{{price | currency}}</option>
+      </select></div>
+    <div class="input-row">
+      <label><i class="icon-money"></i> Safety Deposit</label>
+      <select ng-model="value" class="span1">
+        <option ng-repeat="value in values" value="{{value}}">{{value | currency}}</option>
+      </select>
+    </div>
+    <div class="input-row">
+      <label><i class="icon-keyboard"></i> Description</label>
+      <textarea ng-model="description" class="input-block-level" rows="5" placeholder="This board has tri-fin, thick rails, and a pin tail."></textarea>
+    </div>
+    <div class="input-row">
+      <label>Photos</label>
+      <a class="btn" type="button" ng-click="choosePhotos()"><i class="icon-camera"></i> Pick Em</a>
+    </div>
+
+    <div class="slider">
+      <ul>
+        <li ng-repeat="photo in photos">
+          <img width="100%" ng-src="{{photo}}">
+        </li>
+      </ul>
+    </div>
+    <a class="btn btn-primary btn-large btn-block" ng-click="saveListing()"><i class="icon-check"></i> Submit</a>
+  </form>
+</div>

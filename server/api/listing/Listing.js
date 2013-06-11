@@ -11,8 +11,9 @@ var listingSchema = new mongoose.Schema (
     },
     boardType: String,
     title: String,
+    location: String,
     description: String,
-    image: String,
+    images: Array,
     price: Number,
     value: Number,
     geoCode: {

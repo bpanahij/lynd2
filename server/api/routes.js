@@ -1,16 +1,23 @@
-module.exports = function (api) {
+var _ = require('underscore')
+module.exports = function (apis) {
   return {
     setupSocket: function (socket) {
-      _.each (api, function (func, funcName) {
+      _.each (apis, function (func, funcName) {
         socket.on (funcName, function (data) {
-          api[funcName] (data, function (err, result) {
+          apis[funcName].func (data, function (err, result) {
             if (err) {
-              socket.emit (funcName + 'Success', err)
+              socket.emit (funcName + 'Error', err)
             }
-            socket.emit (funcName + 'Error', result)
+            socket.emit (funcName + 'Success', result)
           })
         })
       })
     }
   }
+}
+
+function validateData(data, params) {
+  _.each(params, function(param) {
+
+  })
 }

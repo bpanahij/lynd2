@@ -3,7 +3,7 @@ module.exports = {
   "dev": {
     "http": {
       "host": "0.0.0.0",
-      "port": 80
+      "port": 8080
     },
     "socket": {
       "host": "0.0.0.0",

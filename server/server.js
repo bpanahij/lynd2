@@ -1,9 +1,14 @@
+var memwatch = require('memwatch');
+memwatch.on('leak', function(info) {
+  console.log('leak', info);
+});
+
 var async = require('async')
 var HttpServer = require('./httpServer')
 var SocketServer = require('./socketServer')
 
 //var dummyListingsRoute = require('./routes/dummyListingsRoute')
-//var listingsRoute = require('./routes/listingsRoute')
+var listingsRoute = require('./api/listing')
 //var singlyRoutes = require('./routes/singlyRoutes')
 //var balancedRoute = require('./routes/balancedRoute')
 //var bankAccountRoute = require('./routes/bankAccountRoute')
@@ -22,7 +27,7 @@ async.series([
     })
   },
   function (callback) {
-    var socketServer = SocketServer();//[listingsRoute, dummyListingsRoute, singlyRoutes, balancedRoute, userProfileRoutes, betaSignupRoute, bankAccountRoute])
+    var socketServer = SocketServer([listingsRoute])//, dummyListingsRoute, singlyRoutes, balancedRoute, userProfileRoutes, betaSignupRoute, bankAccountRoute])
     socketServer.initialize(function() {
       console.log('socket...initialized')
       callback();

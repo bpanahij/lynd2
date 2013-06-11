@@ -1,0 +1,24 @@
+<div id="lyndConsole" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li ng-repeat="photo in listing.images" data-target="#lyndConsole" data-slide-to="{{$index}}" ng-class="$first && 'active'"></li>
+  </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div ng-repeat="photo in listing.images" class="item" ng-class="$first && 'active'">
+      <img ng-src="{{photo}}">
+    </div>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#lyndConsole" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#lyndConsole" data-slide="next">&rsaquo;</a>
+</div>
+
+<div class="btn-group centerGroup">
+  <button class="btn btn-large btn-info">Contact</button>
+  <button class="btn btn-large btn-primary">Book it</button>
+</div>
+<ul class="inset list">
+  <li id="item1" class="segmented-controller-item active">
+    Item 1
+  </li>
+</ul>
