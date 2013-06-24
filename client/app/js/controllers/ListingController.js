@@ -2,13 +2,13 @@
  * ListingController
  */
 define([], function() {
-  return ['$scope', '$http', '$routeParams', 'socketio', function($scope, $http, $routeParams, socketio) {
+  return ['$scope', '$http', '$routeParams', 'listings', function($scope, $http, $routeParams, listings) {
     $scope.listingId = $routeParams.listingId;
-    socketio.on('findByIdSuccess', function(listing) {
+
+    listings.getById(false, $scope.listingId, {lat:0, long:0}, function(listing) {
       $scope.listing = listing;
       $scope.$apply();
-    });
-    socketio.emit('findById', {_id: $scope.listingId})
+    })
     $scope.$apply();
   }];
 });

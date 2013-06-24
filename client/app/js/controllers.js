@@ -1,10 +1,50 @@
-define (['angular', 'services', 'gmaps'], function (angular, services) {
+define (['angular', 'services'], function (angular, services) {
   'use strict';
 
   return angular.module ('Lynd.controllers', ['Lynd.services'])
+    .controller ('MenuProviderController', ['$scope', function ($scope) {
+      require (['controllers/menu/MenuProviderController'], function (MenuProviderController) {
+        angular.injector (['ng', 'Lynd.services']).invoke (MenuProviderController, this, {'$scope': $scope});
+      });
+    }])
+    .controller ('SignupStepOneController', ['$scope', '$location', function ($scope, $location) {
+      require (['controllers/signup/SignupStepOneController'], function (SignupStepOneController) {
+        angular.injector (['ng', 'Lynd.services']).invoke (SignupStepOneController, this, {'$scope': $scope, '$location': $location});
+      });
+    }])
+    .controller ('SignupStepTwoController', ['$scope', '$location', function ($scope, $location) {
+      require (['controllers/signup/SignupStepTwoController'], function (SignupStepTwoController) {
+        angular.injector (['ng', 'Lynd.services']).invoke (SignupStepTwoController, this, {'$scope': $scope, '$location': $location});
+      });
+    }])
+    .controller ('SignupStepThreeController', ['$scope', '$location', function ($scope, $location) {
+      require (['controllers/signup/SignupStepThreeController'], function (SignupStepThreeController) {
+        angular.injector (['ng', 'Lynd.services']).invoke (SignupStepThreeController, this, {'$scope': $scope, '$location': $location});
+      });
+    }])
+    .controller ('SignupStepFourController', ['$scope', '$location', function ($scope, $location) {
+      require (['controllers/signup/SignupStepFourController'], function (SignupStepFourController) {
+        angular.injector (['ng', 'Lynd.services']).invoke (SignupStepFourController, this, {'$scope': $scope, '$location': $location});
+      });
+    }])
+    .controller ('SignupStepFiveController', ['$scope', '$location', function ($scope, $location) {
+      require (['controllers/signup/SignupStepFiveController'], function (SignupStepFiveController) {
+        angular.injector (['ng', 'Lynd.services']).invoke (SignupStepFiveController, this, {'$scope': $scope, '$location': $location});
+      });
+    }])
+    .controller ('FinishUpController', ['$scope', '$location', function ($scope, $location) {
+      require (['controllers/signup/FinishUpController'], function (FinishUpController) {
+        angular.injector (['ng', 'Lynd.services']).invoke (FinishUpController, this, {'$scope': $scope, '$location': $location});
+      });
+    }])
     .controller ('SearchController', ['$scope', function ($scope) {
       require (['controllers/SearchController'], function (SearchController) {
         angular.injector (['ng', 'Lynd.services', 'Lynd.filters']).invoke (SearchController, this, {'$scope': $scope});
+      });
+    }])
+    .controller ('SearchHeaderController', ['$scope', function ($scope) {
+      require (['controllers/SearchHeaderController'], function (SearchHeaderController) {
+        angular.injector (['ng', 'Lynd.services', 'Lynd.filters']).invoke (SearchHeaderController, this, {'$scope': $scope});
       });
     }])
     .controller ('MapController', ['$scope', function ($scope) {
@@ -21,7 +61,7 @@ define (['angular', 'services', 'gmaps'], function (angular, services) {
     }])
     .controller ('AccountController', ['$scope', function ($scope) {
       require (['controllers/AccountController'], function (AccountController) {
-        angular.injector (['ng']).invoke (AccountController, this, {'$scope': $scope});
+        angular.injector (['ng', 'Lynd.services']).invoke (AccountController, this, {'$scope': $scope});
       });
     }])
     .controller ('ListingController', ['$scope', '$routeParams', function ($scope, $routeParams) {
@@ -29,19 +69,19 @@ define (['angular', 'services', 'gmaps'], function (angular, services) {
         angular.injector (['ng', 'Lynd.services']).invoke (ListingController, this, {'$scope': $scope, '$routeParams': $routeParams});
       });
     }])
-    .controller ('ListingsController', ['$scope', function ($scope) {
+    .controller ('ListingsController', ['$scope', '$location', function ($scope, $location) {
       require (['controllers/ListingsController'], function (ListingsController) {
-        angular.injector (['ng']).invoke (ListingsController, this, {'$scope': $scope});
+        angular.injector (['ng', 'Lynd.services']).invoke (ListingsController, this, {'$scope': $scope, '$location': $location});
       });
     }])
-    .controller ('ListItemController', ['$scope', function ($scope) {
+    .controller ('ListItemController', ['$scope', '$location', function ($scope, $location) {
       require (['controllers/ListItemController'], function (ListItemController) {
-        angular.injector (['ng', 'Lynd.services']).invoke (ListItemController, this, {'$scope': $scope});
+        angular.injector (['ng', 'Lynd.services']).invoke (ListItemController, this, {'$scope': $scope, '$location': $location});
       });
     }])
     .controller ('ReservationController', ['$scope', function ($scope) {
       require (['controllers/ReservationController'], function (ReservationController) {
-        angular.injector (['ng']).invoke (ReservationController, this, {'$scope': $scope});
+        angular.injector (['ng', 'Lynd.services']).invoke (ReservationController, this, {'$scope': $scope});
       });
     }]);
 });

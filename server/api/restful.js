@@ -81,5 +81,14 @@
     var post = restful.extend (apiEndpoint, data)
     restful.postRequest (post, callback)
   }
+  restful.routify = function (internals) {
+    var externals = {}
+    _.each(internals, function(endpoint, name) {
+      externals[name] = function(data, callback) {
+        restful.discover (name, internals, data, callback)
+      }
+    })
+    return externals
+  }
   init ()
 }).call (this)

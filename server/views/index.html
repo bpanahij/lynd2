@@ -15,7 +15,8 @@
   <!--<link rel="stylesheet" href="../../app/js/lib/ratchet/ratchet.css">-->
   <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap-responsive.min.css">
-  <link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+  <!--<link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">-->
+  <link rel="stylesheet" href="../../assets/css/cheetah.css">
   <link rel="stylesheet" href="../../assets/css/sidemenu.css">
   <link rel="stylesheet" href="../../assets/css/app.css">
   <script type="text/javascript">
@@ -29,20 +30,40 @@
   <script data-main="/app/js/main" src="../../app/js/lib/require/require.js"></script>
 </head>
 <body class="cbp-spmenu-push" id="lynd">
-<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="leftMenu">
-  <h3>Menu</h3>
-  <a href="#/search"><i class="icon-search icon-large icon-white"></i> Search</a>
-  <a href="#/listItem"><i class="icon-share icon-large icon-white"></i> List Item</a>
-  <a href="#/account"><i class="icon-user icon-large icon-white"></i> My Account</a>
-  <a href="#/listings"><i class="icon-tags icon-large icon-white"></i> My Listings</a>
-  <a href="#/reservations"><i class="icon-calendar icon-large icon-white"></i> My Reservations</a>
+<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="leftMenu" ui-view="menu">
 </nav>
-<div class="navbar navbar-inverse">
-  <div class="navbar-inner">
-    <button id="menu-button" class="btn btn-primary"><i class="icon-list icon-large"></i></button>
-  </div>
+<div class="header navbar pan" ui-view="header">
 </div>
-<div class="content" ng-view>
+<div class="content" ui-view="content">
 </div>
+<div class="footer navbar" ui-view="footer">
+</div>
+<div id="fb-root"></div>
+<script type="text/javascript">
+  var fbisLoaded = false
+  window.fbAsyncInit = function () {
+    FB.init({
+      appId: '{{facebookAppId}}', // App ID
+      channelUrl: '//{{httpHost}}/channel.html', // Channel File
+      status: true, // check login status
+      cookie: true, // enable cookies to allow the server to access the session
+      xfbml: true  // parse XFBML
+    })
+    fbisLoaded = true;
+  };
+
+  // Load the SDK Asynchronously
+  (function (d) {
+    var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0]
+    if (d.getElementById(id)) {
+      return
+    }
+    js = d.createElement('script');
+    js.id = id;
+    js.async = true
+    js.src = "//connect.facebook.net/en_US/all.js"
+    ref.parentNode.insertBefore(js, ref)
+  }(document))
+</script>
 </body>
 </html>

@@ -9,6 +9,7 @@ var SocketServer = require('./socketServer')
 
 //var dummyListingsRoute = require('./routes/dummyListingsRoute')
 var listingsRoute = require('./api/listing')
+var userProfileRoutes = require('./api/profile')
 //var singlyRoutes = require('./routes/singlyRoutes')
 //var balancedRoute = require('./routes/balancedRoute')
 //var bankAccountRoute = require('./routes/bankAccountRoute')
@@ -27,7 +28,7 @@ async.series([
     })
   },
   function (callback) {
-    var socketServer = SocketServer([listingsRoute])//, dummyListingsRoute, singlyRoutes, balancedRoute, userProfileRoutes, betaSignupRoute, bankAccountRoute])
+    var socketServer = SocketServer([listingsRoute, userProfileRoutes])//, dummyListingsRoute, singlyRoutes, balancedRoute, userProfileRoutes, betaSignupRoute, bankAccountRoute])
     socketServer.initialize(function() {
       console.log('socket...initialized')
       callback();

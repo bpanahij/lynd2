@@ -1,0 +1,22 @@
+<div id="wrapper" class="content">
+  <div id="scrollable">
+    <div class="well searchResultWell pan man" ng-repeat="listing in listings | filter: $rootScope.searchString" style="position:relative; height:150px; background-image: url({{listing.images[0] | quiverPlaceholdIt:'150x105'}}); background-size: 100%; background-position: center;">
+      <div ng-click="listingDetails()" class="row-fluid">
+        <div class="span12" style="height: 70px;position:relative;opacity:0.4;filter:alpha(opacity=40);background-color:black;color: white;">
+          <div style="position:absolute;top:0px;left:10px;">
+            <h3 class="man pan">{{listing.title}}</h3>
+
+            <p class="man pan">{{listing.location}}</p>
+          </div>
+
+          <h3 class="pan man" style="position:absolute;top:0px;right:10px;">{{listing.price | currency}}/day</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<nav class="bar-tab" style="position: fixed; bottom: 0px; right: 10px">
+  <ul class="well">
+    <a class="button" href="#/map"><i class="icon-map-marker icon-large"></i></a>
+  </ul>
+</nav>

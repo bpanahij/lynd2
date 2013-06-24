@@ -1,23 +1,20 @@
+<ul class="nav nav-tabs" id="accountTabs">
+  <li class="active"><a href="#profile">Profile</a></li>
+  <li><a href="#bank">Bank</a></li>
+  <li><a href="#payments">Payments</a></li>
+</ul>
 
-<ul class="segmented-controller">
-  <li class="active">
-    <a href="#item1">Profile</a>
-  </li>
-  <li>
-    <a href="#item2">Bank</a>
-  </li>
-  <li>
-    <a href="#item3">Payment</a>
-  </li>
-</ul>
-<ul class="inset list">
-  <li id="item1" class="segmented-controller-item active">
-    Item 1
-  </li>
-  <li id="item2" class="segmented-controller-item">
-    Item 2
-  </li>
-  <li id="item3" class="segmented-controller-item">
-    Item 3
-  </li>
-</ul>
+<div class="tab-content">
+  <div class="tab-pane active" id="profile">
+    <ng-include src="'/app/partials/account/profile.html'">
+    </ng-include>
+  </div>
+  <div class="tab-pane" id="bank">
+    <ng-include src="'/app/partials/account/bank.html'">
+    </ng-include>
+  </div>
+  <div class="tab-pane" id="payments">
+    <ng-include src="'/app/partials/account/creditCard.html'">
+    </ng-include>
+  </div>
+</div>

@@ -16,7 +16,7 @@ vows.describe ('Credit Card API').addBatch ({
         security_code: 123,
         card_number: 5105105105105100
       }
-      creditCardApi.request ('new', payload, this.callback)
+      creditCardApi.new (payload, this.callback)
     },
     'Card Created': function (err, got) {
       var expect = {
@@ -40,7 +40,7 @@ vows.describe ('Credit Card API').addBatch ({
           method: 'GET',
           uri: card.uri
         }
-        creditCardApi.request ('get', payload, function (err, got) {
+        creditCardApi.get( payload, function (err, got) {
           this.callback (err, got, card)
         }.bind (this))
       },
@@ -54,7 +54,7 @@ vows.describe ('Credit Card API').addBatch ({
             uri: card.uri,
             is_valid: false
           }
-          creditCardApi.request ('invalidate', payload, this.callback)
+          creditCardApi.invalidate (payload, this.callback)
         },
         'Card Invalidated': function (err, card) {
           assert.equal (card.is_valid, false)

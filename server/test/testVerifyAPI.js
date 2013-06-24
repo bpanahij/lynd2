@@ -17,7 +17,7 @@ vows.describe ('Verify API')
         routingNumber: '121000358',
         type: 'checking'
       }
-      bankAccountAPI.request ('new', payload, this.callback)
+      bankAccountAPI.new (payload, this.callback)
     },
     'should create a Bank Account': function (err, bankAccount) {
       var expect = {
@@ -39,7 +39,7 @@ vows.describe ('Verify API')
         var payload = {
           verificationsUri: bankAccount.verifications_uri
         }
-        verifyAPI.request ('new', payload, this.callback)
+        verifyAPI.new (payload, this.callback)
       },
       'should respond with Success': function (err, data) {
         assert.equal (data.attempts, 0)
@@ -53,7 +53,7 @@ vows.describe ('Verify API')
             amountTwo: 1,
             verificationsUri: verification.uri
           }
-          verifyAPI.request('verify', payload, this.callback)
+          verifyAPI.verify (payload, this.callback)
         },
         'should respond': function (err, data) {
           assert.equal (data.attempts, 1)
@@ -63,14 +63,14 @@ vows.describe ('Verify API')
             method: 'GET',
             limit: 50
           }
-          bankAccountAPI.request ('list', payload, function(err, response) {
+          bankAccountAPI.list (payload, function(err, response) {
             var countSent = 0;
             var q = async.queue (function (account, callback) {
               var payload = {
                 method: 'DELETE',
                 uri: account.uri
               }
-              bankAccountAPI.request ('delete', payload, callback)
+              bankAccountAPI.delete (payload, callback)
             }, 1)
             q.drain = function () {
               console.log ('Deleted ' + countSent + ' bank accounts')

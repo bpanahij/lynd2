@@ -16,7 +16,7 @@ vows.describe ('Bank Account API').addBatch ({
         routingNumber: '121000358',
         type: 'checking'
       }
-      bankAccountApi.request ('new', payload, this.callback)
+      bankAccountApi.new (payload, this.callback)
     },
     'Account Created': function (err, got) {
       var expected = {
@@ -38,7 +38,7 @@ vows.describe ('Bank Account API').addBatch ({
           method: 'GET',
           limit: 50
         }
-        bankAccountApi.request ('list', payload, this.callback)
+        bankAccountApi.list (payload, this.callback)
       },
       'Accounts Listed': function (err, got) {
         assert.isArray (got.items)
@@ -51,7 +51,7 @@ vows.describe ('Bank Account API').addBatch ({
               method: 'DELETE',
               uri: account.uri
             }
-            bankAccountApi.request ('delete', payload, callback)
+            bankAccountApi.delete(payload, callback)
           }, 1)
           q.drain = function () {
             this.callback (null, countSent, bankAccounts.items.length)
@@ -69,7 +69,7 @@ vows.describe ('Bank Account API').addBatch ({
             var payload = {
               method: 'GET'
             }
-            bankAccountApi.request ('list', payload, this.callback)
+            bankAccountApi.list(payload, this.callback)
           },
           'No Accounts Listed': function (err, got) {
             assert.isArray (got.items)
@@ -84,7 +84,7 @@ vows.describe ('Bank Account API').addBatch ({
                 routingNumber: '121000358',
                 type: 'checking'
               }
-              bankAccountApi.request ('new', payload, this.callback)
+              bankAccountApi.new (payload, this.callback)
             },
             'Account Created': function (err, got) {
               var expect = {
@@ -107,7 +107,7 @@ vows.describe ('Bank Account API').addBatch ({
                   method: 'GET',
                   uri: bankAccount.uri
                 }
-                bankAccountApi.request ('get', payload, this.callback)
+                bankAccountApi.get (payload, this.callback)
               },
               'Account Retrieved': function (err, got) {
                 var expect = {

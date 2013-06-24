@@ -3,12 +3,13 @@
 require.config ({
   paths: {
     angular: 'lib/angular/angular',
+    angular_ui_router: 'lib/angular/angular-ui-router.min',
     text: 'lib/require/text',
-    jquery: 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min',
+    jquery: 'lib/jquery/jquery.min',
     iscroll: 'lib/iscroll/iscroll',
     async: 'lib/async/async',
     gmaps: 'lib/googlemaps/googlemaps',
-    underscore: 'http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min',
+    underscore: 'lib/underscore/underscore-local',
     socket: 'lib/socket.io/socket.io',
     bootstrap: 'lib/bootstrap/bootstrap.min'
   },
@@ -16,7 +17,8 @@ require.config ({
   shim: {
     'angular': {'exports': 'angular'},
     'angularMocks': {deps: ['angular'], 'exports': 'angular.mock'},
-    'bootstrap' : ['jquery']
+    'angular_ui_router': ['angular'],
+    'bootstrap': ['jquery']
   },
   priority: [
     "angular"
@@ -31,12 +33,14 @@ require ([
   'filters',
   'directives',
   'angular',
+  'gmaps',
+  'angular_ui_router',
   'iscroll',
   'underscore',
   'socket',
   'bootstrap'
 ], function (app) {
-//  $ ().loaded (function () {
+  $ (document).ready (function () {
     angular.bootstrap (document.getElementById ('lynd'), ['Lynd']);
-//  })
+  })
 });

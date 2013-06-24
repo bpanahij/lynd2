@@ -1,6 +1,7 @@
 var mongoose = require ( 'mongoose' )
 var UserProfileSchema = new mongoose.Schema (
   {
+    id: String,
     username: String,
     password: String,
     fullName: String,
@@ -16,7 +17,9 @@ var UserProfileSchema = new mongoose.Schema (
     image: String,
     about: String,
     location: String,
-    token: String
+    token: String,
+    yearsSurfing: String,
+    balancedMarketplaceURIHash: String
   }
-);
-module.exports = mongoose.model ( "UserProfile", UserProfileSchema );
+)
+module.exports = mongoose.model ( "UserProfile", UserProfileSchema )

@@ -1,8 +1,9 @@
-body {
+html, body {
     padding: 0px;
 }
 .content {
-    overflow: hidden;
+    margin-top: 35px;
+    /*overflow: hidden;*/
 }
 
 .cbp-spmenu h3 {
@@ -31,7 +32,7 @@ body {
 }
 
 .searchThumbnail {
-    height: 100px;
+    width: 95%;
     border: 3px solid white;
     box-shadow: 0px 0px 3px black;
 }
@@ -97,10 +98,91 @@ a, a:hover {
     margin-bottom: 0px;
 }
 
-.navbar-inverse, .navbar-inner {
-    background-color: #0d77b6 !important;
-    background-image: none !important;
-    border-radius: 0px;
-    border: none;
-    height: 50px;
+.searchWell {
+    width: 100%;
+    padding: 3px;
+    margin: 0px;
+    box-shadow: 3px 0px 10px black;
+}
+
+.carousel-inner div img {
+    width: 100%;
+}
+
+.header {
+    z-index: 10;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    box-shadow: 0px 0px 10px black;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+
+.middle {
+    width: 250px;
+    position: absolute;
+    left: 50%;
+    margin-left: -125px;
+    text-align: center;
+}
+
+html, body, .content {
+    height: 100%;
+}
+
+.fill {
+    min-height: 100%;
+    height: 100%;
+}
+
+.navbar-inner h3 {
+    margin: 0px;
+    padding: 0px;
+}
+
+.profilePlacard {
+    margin-top: -50px;
+    padding: 10px;
+    padding-top: 70px;
+    box-shadow: 0px 0px 10px #333;
+    width: 100%;
+    background: white;
+}
+
+.topContentEditable {
+    padding: 5px;
+    height: 50%;
+    margin-top:-1px;
+    border-bottom: 1px solid #e3e3e3;
+    color: #3e3e3e;
+}
+
+.bottomContentEditable {
+    padding: 5px;
+    height: 50%;
+    color: #5e5e5e;
+}
+
+.disclaimer {
+    color: #e3e3e3;
+    font-size: 7px;
+}
+
+.placeholderText {
+    color: #999;
+}
+
+.small {
+    margin-left: 10px;
+    font-size: 10px;
+}
+
+.splashOne {
+    background-image: url("/assets/img/quiver.png");
+    background-size: 100%;
 }

@@ -1,0 +1,18 @@
+<div>
+  <h1>Bank Info</h1>
+    <form>
+      <label>Your Name</label>
+      <input type="text" required>
+      <label>Account Number</label>
+      <input type="number" required ng-model="marketplace.bankAccount.account_number">
+      <label>Account Type</label><br>
+      <input class="inline" name="accountType" type="radio" value="checking" ng-model="marketplace.bankAccount.type">
+      <label class="font-normal" checked>checking</label>
+      <input class="inline" name="accountType" type="radio" value="savings" ng-model="marketplace.bankAccount.type">
+      <label class="font-normal ">savings</label><br>
+      <label>Routing Number</label>
+      <input type="number" required ng-model="marketplace.bankAccount.bank_code">
+      <img src="assets/img/check-image.png">
+      <button class="submit-btn">Save Account</button>
+    </form>
+</div>

@@ -1,14 +1,14 @@
 var _ = require('underscore')
-module.exports = function (apis) {
+module.exports = function (dir, apis) {
   return {
     setupSocket: function (socket) {
       _.each (apis, function (func, funcName) {
-        socket.on (funcName, function (data) {
+        socket.on (dir + funcName, function (data) {
           apis[funcName].func (data, function (err, result) {
             if (err) {
-              socket.emit (funcName + 'Error', err)
+              socket.emit (dir + funcName + 'Error', err)
             }
-            socket.emit (funcName + 'Success', result)
+            socket.emit (dir + funcName + 'Success', result)
           })
         })
       })

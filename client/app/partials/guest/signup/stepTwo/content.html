@@ -1,0 +1,36 @@
+<div class="profilePlacard">
+  <div class="media">
+    <a class="pull-left" href="#">
+      <img class="media-object" width="120px" height="95px" ng-src="{{profile.image | placeholdIt:'120x95'}}" ng-click="addPhoto()">
+    </a>
+
+    <div class="media-body">
+      <div class="well pan" style="width: 90%;">
+        <div ng-model="profile.fullName" contenteditable="true" class="topContentEditable" style="height:20px;font-size: 20px;font-weight: bold;" placeholder-text="Your Name"></div>
+        <div ng-model="profile.location" contenteditable="true" class="topContentEditable" style="height:20px" placeholder-text="Location"></div>
+        <div class="rating pas" style="height:20px">
+          Rating
+            <span ng-repeat="star in stars">
+              <i class="{{star.class}} icon-large icon-white"></i>
+            </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mam mtl">
+  <div class="well pan">
+    <div ng-model="profile.about" contenteditable="true" class="topContentEditable" style="height:64px" placeholder-text="'A bit about yourself (your surfing experience, favorite spots, etc.)'"></div>
+    <div ng-model="profile.yearsSurfing" contenteditable="true" class="bottomContentEditable" style="height:32px" placeholder-text="Years surfing"></div>
+  </div>
+  <div class="well pan">
+    <div ng-model="profile.phone" contenteditable="true" class="topContentEditable" style="height:33px" placeholder-text='Phone <span class="small">Lynd currently uses SMS to notify you of rental requests</span>'></div>
+    <div ng-model="profile.email" contenteditable="true" class="bottomContentEditable" style="height:33px" placeholder-text="Email address"></div>
+  </div>
+  <div class="mal mts disclaimer">By saving your profile you accept Lynd's Terms of Service and Privacy Policy.</div>
+</div>
+<div class="footer navbar">
+  <div class="navbar-inner text-center">
+    <button ng-click="updateUserProfile()" class="btn btn-default btn-large">Save Profile</button>
+  </div>
+</div>

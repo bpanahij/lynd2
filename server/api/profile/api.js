@@ -1,102 +1,85 @@
 var Profile = require ('./Profile'),
   _ = require ('underscore')
 
-var api = {
-  GET: function (data, callback) {
-    if (_.has (data, '_id')) {
-      internals.getUserProfileById (data, callback)
-      return
-    }
-    if (_.has (data, 'username')) {
-      internals.getUserProfileByUsername (data, callback)
-      return
-    }
-    if (_.has (data, 'facebookId')) {
-      internals.getUserProfileByFacebookId (data, callback)
-      return
-    }
-  },
-  POST: function (data, callback) {
-    internals.addNewUserProfile(data, callback)
-  },
-  PUT: function (data, callback) {
-    if(_.has(data, '_id')) {
-      internals.updateUserProfileById(data, callback)
-      return
-    }
-    if(_.has(data, '')) {
-      internals.updateUserProfileByUsername(data, callback)
-      return
-    }
-    internals.addNewUserProfile(data, callback)
-  },
-  DELETE: function (data, callback) {
-    //Never delete a user profile
-  }
-}
 var internals = {
   /**
    *
    * @param id
    * @param callback
    */
-  getUserProfileById: function (data, callback) {
-    Profile.findById (data._id, function (err, userProfile) {
-      callback (err, userProfile)
-    })
+  getUserProfileById: {
+    func: function (data, callback) {
+      Profile.findById (data._id, function (err, userProfile) {
+        callback (err, userProfile)
+      })
+    }
   },
   /**
    *
    * @param data
    * @param callback
    */
-  getUserProfileByUsername: function (data, callback) {
+  getUserProfileByUsername: { func: function (data, callback) {
     Profile.findOne ({username: data.username}, function (err, userProfile, data) {
       callback (err, userProfile)
     })
-  },
+  }},
   /**
    *
    * @param data
    * @param callback
    */
-  getUserProfileByFacebookId: function (data, callback) {
+  getUserProfileByFacebookId: { func: function (data, callback) {
     Profile.findOne ({facebookId: data.facebookId}, function (err, userProfile, data) {
       callback (err, userProfile)
     })
-  },
+  }},
   /**
    *
    * @param data
    * @param callback
    */
-  addNewUserProfile: function (data, callback) {
+  addNewUserProfile: { func: function (data, callback) {
     var userProfile = {}
+    _.each(data, function(value, key, list) {
+      if(key == 'link') {
+        list['facebookLink'] = value
+        return
+      }
+      key = key.replace(/_(.)/, function(char) {
+        return char.replace(/_/, '').toUpperCase()
+      })
+      list[key] = value
+    });
     _.extend (userProfile, data)
-    var model = new UserProfile (userProfile)
+    var model = new Profile (userProfile)
     model.save (function (err, result) {
       callback (err, result)
     })
-  },
+  }},
   /**
    *
    * @param data
    * @param callback
    */
-  updateUserProfileById: function (data, callback) {
-    Profile.findById (data.id, function (err, model) {
+  updateUserProfileById: { func: function (data, callback) {
+    Profile.findById (data._id, function (err, model) {
+      if (_.isEmpty(model)) {
+        callback(new Error('No User'), {})
+        return
+      }
       _.extend (model, data)
       model.save (function (err, result) {
         callback (err, result)
       })
     })
-  },
+  }},
   /**
    *
    * @param data
    * @param callback
    */
-  updateUserProfileByUsername: function (data, callback) {
+  updateUserProfileByUsername: { func: function (data, callback) {
     Profile.findOne ({username: data.username}, function (err, model) {
       if (_.isNull (model)) {
         api.addNewUserProfile (data, callback)
@@ -107,6 +90,6 @@ var internals = {
         callback (err, result)
       })
     })
-  }
+  }}
 }
-module.exports = api
+module.exports = internals

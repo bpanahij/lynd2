@@ -24,14 +24,13 @@ var internals = {
       })
     }
   },
-  findById: {
+  getById: {
     params: {
 
     },
     func: function (data, callback) {
       Listing.findById (data._id, function (error, model) {
-        var geoCode = {lat:0, long:0};
-        var distanceFromTarget = geocodeUtil.distanceBetweenTwoGeocodes (geoCode, model.geoCode)
+        var distanceFromTarget = geocodeUtil.distanceBetweenTwoGeocodes (data.geoCode, model.geoCode)
         model.distanceFromUser = distanceFromTarget;
         callback (null, model)
       })
@@ -43,18 +42,17 @@ var internals = {
    * @param {number} distanceInMiles
    * @param {function(Error, Array.<Listing>} callback
    */
-  findByDistance: {
+  getByDistance: {
     params: {
 
     },
     func: function (data, callback) {
-      console.log('findByDistance')
       var numberGeohashBlocks = Math.ceil (data.distance)
       var geoHashArray = geohashUtil.getHashesFromGeocodeInBlockRadius (data.geoCode, numberGeohashBlocks)
       var matchingListings = []
       var numberComplete = 0
       geoHashArray.forEach (function (geoHash) {
-        internals.findByGeohash.func (geoHash, function (err, listings) {
+        internals.getByGeohash.func (geoHash, function (err, listings) {
           if (listings && listings.length > 0) {
             listings.forEach (function (listing) {
               var distanceFromTarget = geocodeUtil.distanceBetweenTwoGeocodes (data.geoCode, listing.geoCode)
@@ -77,7 +75,7 @@ var internals = {
    * @param geohash
    * @param callback
    */
-  findByGeohash: {
+  getByGeohash: {
     params: {
 
     },
@@ -92,7 +90,7 @@ var internals = {
    *
    * @param callback
    */
-  findAllListings: {
+  getAllListings: {
     params: {
 
     },
@@ -108,7 +106,7 @@ var internals = {
    * @param userId
    * @param callback
    */
-  findByUserId: {
+  getByUserId: {
     params: {
 
     },

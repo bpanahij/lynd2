@@ -1,14 +1,10 @@
-var restful = require ('../../restful'),
+var _ = require('underscore'),
+  restful = require ('../../restful'),
   config = require ('../../../config'),
   username = config.current ().balanced.username,
   password = config.current ().balanced.password,
   auth = "Basic " + new Buffer (username + ":" + password).toString ("base64")
 
-module.exports = {
-  request: function (name, data, callback) {
-    restful.discover (name, internals, data, callback)
-  }
-}
 var any = /.+/
 var internals = {
   new: {
@@ -91,3 +87,5 @@ var internals = {
     }
   }
 }
+
+module.exports = restful.routify(internals)

@@ -1,12 +1,6 @@
 var restful = require ('../../restful'),
   config = require ('../../../config')
 
-module.exports = {
-  request: function (name, data, callback) {
-    restful.discover (name, internals, data, callback)
-  }
-}
-
 /**
  * Defining any Regular Expressions for validating data before it can be sent
  */
@@ -96,3 +90,5 @@ var internals = {
     }
   }
 }
+
+module.exports = restful.routify(internals)

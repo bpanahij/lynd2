@@ -8,13 +8,13 @@ var creditCardApi = require ('../api/balanced/creditCard/api.js'),
   bankAccountApi = require ('../api/balanced/bankAccount/api.js'),
   marketplaceApi = require ('../api/balanced/marketplace/api.js')
 
-vows.describe ('Marketplace API').addBatch({
+vows.describe ('Marketplace API').addBatch ({
   '->list all Accounts': {
-    topic: function() {
-      marketplaceApi.request('get', {}, this.callback)
+    topic: function () {
+      marketplaceApi.get ({}, this.callback)
     },
-    'should result in an object with items': function(response) {
-      assert.isArray(response.items)
+    'should result in an object with items': function (response) {
+      assert.isArray (response.items)
     }
   }
 }).addBatch ({
@@ -26,7 +26,7 @@ vows.describe ('Marketplace API').addBatch({
         'security_code': 123,
         'card_number': 5105105105105100
       }
-      creditCardApi.request ('new', payload, this.callback)
+      creditCardApi.new (payload, this.callback)
     },
     'should have created Credit Card': function (err, result) {
       assert.include (result, 'uri')
@@ -36,9 +36,9 @@ vows.describe ('Marketplace API').addBatch({
         var payload = {
           name: 'Brian P. Johnson',
           cardUri: card.uri,
-          emailAddress: process.hrtime()[1] + '_rand@jeff.com'
+          emailAddress: process.hrtime ()[1] + '_rand@jeff.com'
         };
-        marketplaceApi.request ('new', payload, this.callback)
+        marketplaceApi.new (payload, this.callback)
       },
       'should have created Marketplace Account and Card Associated': function (err, got) {
         assert.include (got, 'bank_accounts_uri')
@@ -60,7 +60,7 @@ vows.describe ('Marketplace API').addBatch({
             routingNumber: '121000358',
             type: 'checking'
           }
-          bankAccountApi.request ('new', payload, this.callback)
+          bankAccountApi.new (payload, this.callback)
         },
         'should have created Bank Account': function (err, bankAccount) {
           var expect = {
@@ -83,7 +83,7 @@ vows.describe ('Marketplace API').addBatch({
               bankAccountUri: bankAccount.uri,
               marketplaceUri: marketplaceAccount.uri
             }
-            marketplaceApi.request ('addBankAccount', payload, this.callback)
+            marketplaceApi.addBankAccount (payload, this.callback)
           },
           'should have associated Bank Account with Marketplace Account': function (err, got) {
             assert.include (got, 'bank_accounts_uri')
@@ -97,15 +97,15 @@ vows.describe ('Marketplace API').addBatch({
             assert.include (got, 'refunds_uri')
           },
           '->charge Credit Card': {
-            topic: function(marketPlaceAccountUpdated) {
+            topic: function (marketPlaceAccountUpdated) {
               var payload = {
                 amount: 5000,
                 debitsUri: marketPlaceAccountUpdated.debits_uri
               }
-              marketplaceApi.request('debit', payload, this.callback)
+              marketplaceApi.debit (payload, this.callback)
             },
-            'should have charged Credit Card $50.00': function(err, result) {
-              assert.equal(result.amount, 5000)
+            'should have charged Credit Card $50.00': function (err, result) {
+              assert.equal (result.amount, 5000)
 
             }
           },
@@ -116,10 +116,10 @@ vows.describe ('Marketplace API').addBatch({
                 bankCreditsUri: bankAccount.credits_uri,
                 amount: 5000
               }
-              marketplaceApi.request('credit', payload, this.callback)
+              marketplaceApi.credit (payload, this.callback)
             },
             'should have credited Bank Account $50.00': function (err, result) {
-              assert.equal(result.amount, 5000)
+              assert.equal (result.amount, 5000)
             }
           }
         }

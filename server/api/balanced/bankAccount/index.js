@@ -1,4 +1,5 @@
-var routes = require('../../routes')
-var api = require('./api')
-var ep = routes(api)
+var routes = require('../../routes'),
+  api = require('./api'),
+  prefix = '/balanced/bankAccount/',
+  ep = routes(prefix, api)
 module.export = ep
