@@ -1,0 +1,59 @@
+{
+  "name": "Lynd",
+  "preferGlobal": false,
+  "version": "0.1.0",
+  "author": "Brian Johnson <brian@pjohnson.info>",
+  "description": "Peer top peer sharing",
+  "contributors": [
+    {
+      "name": "Brian Johnson",
+      "email": "brian@pjohnson.info"
+    }
+  ],
+  "bin": {
+    "http-server": "./server/server.js"
+  },
+  "scripts": {
+    "start": "forever ./server/server.js",
+    "test": "vows --spec --isolate"
+  },
+  "main": "./server/server.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:bpanahij/lynd2.git"
+  },
+  "keywords": [
+    "lynd",
+    "peer",
+    "surf"
+  ],
+  "dependencies": {
+    "express": "*",
+    "events": "*",
+    "mongoose": "*",
+    "hbs": "*",
+    "memwatch": "*",
+    "socket.io": "*",
+    "request": "*",
+    "async": "*",
+    "queryString": "*",
+    "underscore": "*",
+    "vows": "*",
+    "assert": "*"
+  },
+  "analyze": false,
+  "devDependencies": {
+    "async": "*",
+    "request": "*",
+    "queryString": "*",
+    "underscore": "*",
+    "vows": "*",
+    "assert": "*"
+  },
+  "bundledDependencies": [
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.6"
+  }
+}
