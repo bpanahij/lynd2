@@ -445,4 +445,13 @@ define (['angular', 'socket'], function (angular, sock) {
       }
       return filePicker
     }])
+    .factory ('googleAnalytics', ['$scope', '$window', function ($scope, $window) {
+      return {
+        listenTrack: function() {
+          $scope.$on('$viewContentLoaded', function(event) {
+            $window._gaq.push(['_trackPageview', $location.path()]);
+          });
+        }
+      }
+    }])
 })
