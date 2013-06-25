@@ -192,3 +192,10 @@ html, body, .content {
     color: white;
     text-shadow: 1px 1px 5px black;
 }
+
+.fbButton {
+    background:#3b5998;
+    color: white;
+    box-shadow: 2px 2px 5px black;
+    border: none;
+}
