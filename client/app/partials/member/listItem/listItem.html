@@ -1,30 +1,33 @@
 <div class="well">
   <form ng-submit="saveListing()" class="form-horizontal">
     <div class="input-row">
-      <label><i class="icon-money"></i> Title</label>
-      <input ng-model="title" id="inputTitle" type="text" class="input-xlarge" placeholder="Title">
+      <input ng-model="title" id="inputTitle" type="text" class="input-xlarge" placeholder="Item Title">
     </div>
-    <label><i class="icon-money"></i> Location</label>
+    <br>
     <div class="input-row">
-      <input ng-model="location" class="input-block-level" type="text" placeholder="Location" list="locations">
+      <input ng-model="location" class="input-block-level" type="text" placeholder="Item Location" list="locations">
       <datalist id="locations">
         <option ng-repeat="location in locations" value="{{location.address}}">
       </datalist>
     </div>
+    <br>
     <div class="input-row">
-      <label><i class="icon-money"></i> Daily Rate</label>
       <select ng-model="price" class="span1">
+        <option value="" selected="selected">Daily Rate</option>
         <option ng-repeat="price in prices" value="{{price}}">{{price | currency}}</option>
-      </select></div>
-    <div class="input-row">
-      <label><i class="icon-money"></i> Safety Deposit</label>
-      <select ng-model="value" class="span1">
-        <option ng-repeat="value in values" value="{{value}}">{{value | currency}}</option>
       </select>
     </div>
+    <br>
     <div class="input-row">
-      <label><i class="icon-keyboard"></i> Description</label>
-      <textarea ng-model="description" class="input-block-level" rows="5" placeholder="This board has tri-fin, thick rails, and a pin tail."></textarea>
+      <select ng-model="value" class="span1">
+        <option value="" selected="selected">Safety Deposit</option>
+        <option ng-repeat="value in values" value="{{value}}">{{value | currency}}</option>
+      </select>
+      <span class="help-block">We also insure your board up to $1000</span>
+    </div>
+    <br>
+    <div class="input-row">
+      <textarea ng-model="description" class="input-block-level" rows="5" placeholder="Tell us about your board!"></textarea>
     </div>
     <div class="input-row">
       <label>Photos</label>
