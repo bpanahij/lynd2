@@ -36,19 +36,27 @@
     "socket.io": "*",
     "request": "*",
     "async": "*",
-    "queryString": "*",
+    "querystring": "*",
     "underscore": "*",
     "vows": "*",
-    "assert": "*"
+    "assert": "*",
+    "forever": "*"
   },
   "analyze": false,
   "devDependencies": {
-    "async": "*",
+    "express": "*",
+    "events": "*",
+    "mongoose": "*",
+    "hbs": "*",
+    "memwatch": "*",
+    "socket.io": "*",
     "request": "*",
-    "queryString": "*",
+    "async": "*",
+    "querystring": "*",
     "underscore": "*",
     "vows": "*",
-    "assert": "*"
+    "assert": "*",
+    "forever": "*"
   },
   "bundledDependencies": [
   ],
