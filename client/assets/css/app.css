@@ -183,6 +183,12 @@ html, body, .content {
 }
 
 .splashOne {
-    background-image: url("/assets/img/quiver.png");
+    background-image: url("/assets/img/splash_surf.gif");
     background-size: 100%;
+}
+
+.signupText {
+    font-size: 12px;
+    color: white;
+    text-shadow: 1px 1px 5px black;
 }
