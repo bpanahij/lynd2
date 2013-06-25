@@ -2,7 +2,7 @@
 
 require.config ({
   paths: {
-    angular: 'lib/angular/angular',
+    angular: 'lib/angular/angular.min',
     angular_ui_router: 'lib/angular/angular-ui-router.min',
     text: 'lib/require/text',
     jquery: 'lib/jquery/jquery.min',
