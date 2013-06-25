@@ -11,12 +11,12 @@ define ([], function () {
       {class: "icon-star-empty"}
     ]
     $scope.profile = {}
+    $scope.photos = []
     auth.getUser (function (err, profile) {
       $scope.profile = profile
       $scope.photos.push(profile.image)
       $scope.$apply ()
     })
-    $scope.photos = []
 
     $scope.updateUserProfile = function () {
       user.setCachedUser ($scope.profile)
