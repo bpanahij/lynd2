@@ -9,7 +9,7 @@ define ([], function () {
       $scope.$apply()
     }
     $scope.getListings = function () {
-      listings.getByUserId (false, 0, function (listings) {
+      listings.getByUserId (false, user.isUserRegistered(), function (listings) {
         $scope.listings = listings
         $scope.$apply ()
       })

@@ -2,7 +2,7 @@
  * ListItemController
  */
 define ([], function () {
-  return ['$scope', '$http', '$location', 'listings', 'geocoder', 'filepicker', '$window', function ($scope, $http, $location, listings, geocoder, fp, $window) {
+  return ['$scope', '$http', '$location', 'listings', 'geocoder', 'filepicker', '$window', 'user', function ($scope, $http, $location, listings, geocoder, fp, $window, user) {
     geocoder.getCurLocation (function (err, loc) {
       $scope.geoCode = loc.geocode
       $scope.locations = loc.addresses
@@ -20,7 +20,7 @@ define ([], function () {
     }
     $scope.saveListing = function () {
       var listing = {
-        userId: 0,
+        userId: user.isUserRegistered(),
         title: $scope.title,
         description: $scope.description,
         location: $scope.location,
