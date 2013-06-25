@@ -17,7 +17,16 @@ define ([], function () {
       $scope.photos.push(profile.image)
       $scope.$apply ()
     })
-
+    $scope.$watch('[profile.about, profile.email, profile.phone, profile.fullName, profile.location, profile.yearsSurfing]', function(newVals, oldVals) {
+      var finished = _.reject(newVals, function(val) {
+        return _.isEmpty(val)
+      })
+      if (finished.length >= 6) {
+        $scope.buttonStatusClass = 'btn-success'
+      } else {
+        $scope.buttonStatusClass = ''
+      }
+    }, true)
     $scope.updateUserProfile = function () {
       if(_.isEmpty($scope.profile.email)) {
         $scope.emailError = 'Please provide your email address.'
