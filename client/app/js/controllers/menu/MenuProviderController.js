@@ -24,12 +24,6 @@ define ([], function () {
           icon: "icon-forward"
         }
       ]
-      $scope.bottomMenuItems = [
-        {
-          menuTitle: "Signup",
-          route: "#/signup/stepOne"
-        }
-      ]
     }
     else {
       /**
