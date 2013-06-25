@@ -20,26 +20,26 @@
   <link rel="stylesheet" href="../../assets/css/sidemenu.css">
   <link rel="stylesheet" href="../../assets/css/app.css">
   <script type="text/javascript">
-    var socketHost = '{{socketHost}}'
-    var development = '{{development}}'
-    var switches = {}
-    switches.fb = "{{switches.fb}}"
-    switches.geocode = "{{switches.geocode}}"
-    switches.mobozi = "{{switches.mobozi}}"
+  var socketHost = '{{socketHost}}'
+  var development = '{{development}}'
+  var switches = {}
+  switches.fb = "{{switches.fb}}"
+  switches.geocode = "{{switches.geocode}}"
+  switches.mobozi = "{{switches.mobozi}}"
   </script>
   <script data-main="/app/js/main" src="../../app/js/lib/require/require.js"></script>
 </head>
 <body class="cbp-spmenu-push" id="lynd">
-<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="leftMenu" ui-view="menu">
-</nav>
-<div class="header navbar pan" ui-view="header">
-</div>
-<div class="content" ui-view="content">
-</div>
-<div class="footer navbar" ui-view="footer">
-</div>
-<div id="fb-root"></div>
-<script type="text/javascript">
+  <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="leftMenu" ui-view="menu">
+  </nav>
+  <div class="header navbar pan" ui-view="header">
+  </div>
+  <div class="content" ui-view="content">
+  </div>
+  <div class="footer navbar" ui-view="footer">
+  </div>
+  <div id="fb-root"></div>
+  <script type="text/javascript">
   var fbisLoaded = false
   window.fbAsyncInit = function () {
     FB.init({
@@ -64,6 +64,12 @@
     js.src = "//connect.facebook.net/en_US/all.js"
     ref.parentNode.insertBefore(js, ref)
   }(document))
-</script>
+  //Google Analytics
+  var _gaq=[["_setAccount","UA-41987251-1"],["_trackPageview"]];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+    g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+    s.parentNode.insertBefore(g,s)}(document,"script"));
+
+  </script>
 </body>
 </html>
