@@ -24,7 +24,9 @@
     <div ng-model="profile.yearsSurfing" contenteditable="true" class="bottomContentEditable" style="height:32px" placeholder-text="Years surfing"></div>
   </div>
   <div class="well pan">
+    <p class="contentEditableError">{{phoneError}}</p>
     <div ng-model="profile.phone" contenteditable="true" class="topContentEditable" style="height:33px" placeholder-text='Phone <span class="small">Lynd currently uses SMS to notify you of rental requests</span>'></div>
+    <p class="contentEditableError">{{emailError}}</p>
     <div ng-model="profile.email" contenteditable="true" class="bottomContentEditable" style="height:33px" placeholder-text="Email address"></div>
   </div>
   <div class="mal mts disclaimer">By saving your profile you accept Lynd's Terms of Service and Privacy Policy.</div>

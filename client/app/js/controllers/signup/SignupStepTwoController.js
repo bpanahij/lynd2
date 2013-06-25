@@ -19,6 +19,14 @@ define ([], function () {
     })
 
     $scope.updateUserProfile = function () {
+      if(_.isEmpty($scope.profile.email)) {
+        $scope.emailError = 'Please provide your email address.'
+        return;
+      }
+      if(_.isEmpty($scope.profile.phone)) {
+        $scope.phoneError = 'Please provide your phone number.'
+        return;
+      }
       user.setCachedUser ($scope.profile)
       user.saveCachedUserProfile (function (err, profile) {
         $location.path ('/signup/stepThree')
