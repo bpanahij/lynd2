@@ -6,6 +6,7 @@ define ([], function () {
     geocoder.getCurLocation (function (err, loc) {
       $scope.geoCode = loc.geocode
       $scope.locations = loc.addresses
+      $scope.location = loc.addresses[1].address
       $scope.$apply ()
     })
     $scope.values = _.range (0, 1000, 25)

@@ -147,6 +147,7 @@ html, body, .content {
 .navbar-inner h3 {
     margin: 0px;
     padding: 0px;
+    padding-right: 40px;
 }
 
 .profilePlacard {
