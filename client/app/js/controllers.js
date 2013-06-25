@@ -2,8 +2,7 @@ define (['angular', 'services'], function (angular, services) {
   'use strict';
 
   return angular.module ('Lynd.controllers', ['Lynd.services'])
-    .controller ('MenuProviderController', ['$scope', 'googleAnalytics', function ($scope, googleAnalytics) {
-      googleAnalytics.listenTrack()
+    .controller ('MenuProviderController', ['$scope', function ($scope) {
       require (['controllers/menu/MenuProviderController'], function (MenuProviderController) {
         angular.injector (['ng', 'Lynd.services']).invoke (MenuProviderController, this, {'$scope': $scope});
       });

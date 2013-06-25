@@ -1,5 +1,6 @@
 define ([], function () {
-  return ['$scope', '$http', 'user', 'sidemenu', function ($scope, $http, user, sidemenu) {
+  return ['$scope', '$http', '$window', 'user', 'sidemenu', 'googleAnalytics', function ($scope, $http, $window, user, sidemenu, googleAnalytics) {
+    googleAnalytics.listenTrack($scope, $window)
     sidemenu.invoke ()
     $scope.menuHeader = "Menu"
     $scope.closeMenu = function() {
