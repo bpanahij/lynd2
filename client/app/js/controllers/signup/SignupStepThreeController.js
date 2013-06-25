@@ -10,6 +10,9 @@ define ([], function () {
     $scope.stepFour = function() {
       $location.path('/signup/stepFour')
     }
+    $scope.stepFive = function() {
+      $location.path('/signup/stepFive')
+    }
     $scope.$apply ()
   }]
 })
