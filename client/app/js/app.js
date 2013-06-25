@@ -10,6 +10,25 @@ define (['angular'], function (angular, filters, services, directives, controlle
     .config (['$stateProvider', '$routeProvider', 'sidemenuProvider', 'socketioProvider', function ($stateProvider) {
       $stateProvider
         .state ('index', {
+          url: "",
+          views: {
+            "menu": {
+              templateUrl: "/app/partials/blank.html"
+            },
+            "header": {
+              controller: 'SearchHeaderController',
+              templateUrl: "/app/partials/blank.html"
+            },
+            "footer": {
+              templateUrl: "/app/partials/blank.html"
+            },
+            "content": {
+              controller: 'IndexController',
+              templateUrl: "/app/partials/blank.html"
+            }
+          }
+        })
+        .state ('search', {
         url: "/search",
         views: {
           "menu": {

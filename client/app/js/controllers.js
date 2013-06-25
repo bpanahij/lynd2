@@ -2,6 +2,13 @@ define (['angular', 'services'], function (angular, services) {
   'use strict';
 
   return angular.module ('Lynd.controllers', ['Lynd.services'])
+    .controller ('IndexController', ['$scope', '$state', 'user', function ($scope, $state, user) {
+      if(user.isUserRegistered()) {
+        $state.transitionTo ('quiver');
+      } else {
+        $state.transitionTo ('signup_1');
+      }
+    }])
     .controller ('MenuProviderController', ['$scope', function ($scope) {
       require (['controllers/menu/MenuProviderController'], function (MenuProviderController) {
         angular.injector (['ng', 'Lynd.services']).invoke (MenuProviderController, this, {'$scope': $scope});
