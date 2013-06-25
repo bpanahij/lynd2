@@ -149,7 +149,7 @@ define (['angular', 'socket'], function (angular, sock) {
         },
 
         convertFacebookProfile: function (fb, auth) {
-          console.log ('convertFacebookProfile', fb)
+//          console.log ('convertFacebookProfile', fb)
           var userProfile = {
             id: fb.id,
             username: fb.username,
@@ -166,7 +166,7 @@ define (['angular', 'socket'], function (angular, sock) {
             phone: '',
             image: 'https://graph.facebook.com/'+ fb.username +'/picture?type=large',
             about: '',
-            location: fb.location.name,
+            location: fb.location && fb.location.name,
             token: auth ? auth.accessToken : null,
             balancedMarketplaceURIHash: null
           }
