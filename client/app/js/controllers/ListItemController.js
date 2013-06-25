@@ -30,7 +30,7 @@ define ([], function () {
         value: $scope.value
       }
       listings.add (listing, function () {
-        $location.path('/search')
+        $location.path('/quiver')
         $scope.$apply ()
       })
     }
