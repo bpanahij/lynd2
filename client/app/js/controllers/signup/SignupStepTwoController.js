@@ -13,6 +13,7 @@ define ([], function () {
     $scope.profile = {}
     auth.getUser (function (err, profile) {
       $scope.profile = profile
+      $scope.photos.push(profile.image)
       $scope.$apply ()
     })
     $scope.photos = []
