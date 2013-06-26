@@ -191,8 +191,12 @@ html, body, .content {
 }
 
 .splashOne {
-    background-image: url("/assets/img/splash_surf.gif");
-    background-size: 100%;
+
+    background: url('/assets/img/hambear.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .signupText {
