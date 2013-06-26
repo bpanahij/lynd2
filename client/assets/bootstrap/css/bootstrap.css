@@ -519,6 +519,7 @@ input[type="submit"].btn-block,input[type="reset"].btn-block,input[type="button"
 .btn-info:active,.btn-info.active{background-color:#24748c \9;}
 .btn-inverse{color:#ffffff;text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);background-color:#363636;background-image:-moz-linear-gradient(top, #444444, #222222);background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#444444), to(#222222));background-image:-webkit-linear-gradient(top, #444444, #222222);background-image:-o-linear-gradient(top, #444444, #222222);background-image:linear-gradient(to bottom, #444444, #222222);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff444444', endColorstr='#ff222222', GradientType=0);border-color:#222222 #222222 #000000;border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);*background-color:#222222;filter:progid:DXImageTransform.Microsoft.gradient(enabled = false);}.btn-inverse:hover,.btn-inverse:focus,.btn-inverse:active,.btn-inverse.active,.btn-inverse.disabled,.btn-inverse[disabled]{color:#ffffff;background-color:#222222;*background-color:#151515;}
 .btn-inverse:active,.btn-inverse.active{background-color:#080808 \9;}
+.btn-fb{background-color:#2b4170;background:-moz-linear-gradient(top, #3b5998, #2b4170);background:-ms-linear-gradient(top, #3b5998, #2b4170);background:-webkit-linear-gradient(top, #3b5998, #2b4170);border:1px solid #2b4170;text-shadow:0 -1px -1px #1f2f52;color:#fff;text-shadow:none;}.btn-fb:hover,.btn-fb:focus,.btn-fb:active{background:-moz-linear-gradient(top, #2b4170, #3b5998);background:-ms-linear-gradient(top, #2b4170, #3b5998);background:-webkit-linear-gradient(top, #2b4170, #3b5998);color:#fff;}
 button.btn,input[type="submit"].btn{*padding-top:3px;*padding-bottom:3px;}button.btn::-moz-focus-inner,input[type="submit"].btn::-moz-focus-inner{padding:0;border:0;}
 button.btn.btn-large,input[type="submit"].btn.btn-large{*padding-top:7px;*padding-bottom:7px;}
 button.btn.btn-small,input[type="submit"].btn.btn-small{*padding-top:3px;*padding-bottom:3px;}
@@ -850,6 +851,7 @@ a.label:hover,a.label:focus,a.badge:hover,a.badge:focus{color:#ffffff;text-decor
 .carousel-caption p{margin-bottom:0;}
 .hero-unit{padding:60px;margin-bottom:30px;font-size:18px;font-weight:200;line-height:30px;color:inherit;background-color:#eeeeee;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;}.hero-unit h1{margin-bottom:0;font-size:60px;line-height:1;color:inherit;letter-spacing:-1px;}
 .hero-unit li{line-height:30px;}
+.center-txt{text-align:center;}
 .pull-right{float:right;}
 .pull-left{float:left;}
 .hide{display:none;}
