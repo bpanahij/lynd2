@@ -1,4 +1,4 @@
-<div class="well searchResultWell pan man" ng-repeat="listing in listings | filter: searchString" style="position:relative; height:150px; background-image: url({{listing.images[0] | quiverPlaceholdIt:'150x105'}}); background-size: 100%; background-position: center;">
+<div class="well searchResultWell pan man" ng-repeat="listing in listings | filter: searchString" style="position:relative; height:150px; background-image: url({{listing.images[0] | quiverPlaceholdIt:'/assets/img/quiver.png'}}); background-size: 100%; background-position: center;">
   <div ng-click="listingDetails('{{listing._id}}')" class="row-fluid">
     <div class="span12" style="height: 70px;position:absolute;top:0px;opacity:0.4;filter:alpha(opacity=40);background-color:black;">
     </div>

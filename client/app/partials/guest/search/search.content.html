@@ -1,6 +1,6 @@
 <div id="wrapper" class="content">
   <div id="scrollable">
-    <div class="well searchResultWell pan man" ng-repeat="listing in listings | filter: $rootScope.searchString" style="position:relative; height:150px; background-image: url({{listing.images[0] | quiverPlaceholdIt:'150x105'}}); background-size: 100%; background-position: center;">
+    <div class="well searchResultWell pan man" ng-repeat="listing in listings | filter: $rootScope.searchString" style="position:relative; height:150px; background-image: url({{listing.images[0] | quiverPlaceholdIt:'/assets/img/horizontal_board.jpg'}}); background-size: 100%; background-position: center;">
       <div ng-click="listingDetails()" class="row-fluid">
         <div class="span12" style="height: 70px;position:relative;opacity:0.4;filter:alpha(opacity=40);background-color:black;color: white;">
           <div style="position:absolute;top:0px;left:10px;">
