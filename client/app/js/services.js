@@ -406,7 +406,7 @@ define ([], function () {
 
       var filePicker = {
         uploadMultiple: function (width, height, progressCallback, callback) {
-          require (['http://api.filepicker.io/v1/filepicker.js', '/app/js/lib/async.js'], function (fp, async) {
+          require (['http://api.filepicker.io/v1/filepicker.js'], function (fp) {
             var photos = []
             var resizeImage = function(image, callback) {
               filepicker.convert (image, {
