@@ -1,5 +1,5 @@
 module.exports = {
-  "development": true,
+  "development": false,
   "dev": {
     "http": {
       "host": "0.0.0.0",
@@ -34,8 +34,8 @@ module.exports = {
   },
   "prod": {
     "http": {
-      "host": "http://www.lynd.me",
-      "port": 80
+      "host": "0.0.0.0",
+      "port": 8080
     },
     "socket": {
       "host": "www.lynd.me",
