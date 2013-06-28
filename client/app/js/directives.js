@@ -1,4 +1,4 @@
-define (['angular', 'services'], function (angular, services) {
+define ([], function () {
   'use strict';
 
   angular.module ('Lynd.directives', ['Lynd.services'])

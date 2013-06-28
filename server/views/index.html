@@ -9,80 +9,78 @@
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../client/app/js/lib/ratchet/touch-icons/apple-touch-icon-114x114.png">
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../client/app/js/lib/ratchet/touch-icons/apple-touch-icon-72x72.png">
   <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../../client/app/js/lib/ratchet/touch-icons/apple-touch-icon-57x57.png">
-
-  <!--<link rel="stylesheet" href="../../assets/css/normalize.css">-->
-  <!--<link rel="stylesheet" href="../../assets/css/flat-ui.css">-->
-  <!--<link rel="stylesheet" href="../../app/js/lib/ratchet/ratchet.css">-->
-  <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap-responsive.css">
-  <!--<link href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">-->
+  <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap-responsive.min.css">
   <link rel="stylesheet" href="../../assets/css/cheetah.css">
   <link rel="stylesheet" href="../../assets/css/sidemenu.css">
   <link rel="stylesheet" href="../../assets/css/app.css">
   <script type="text/javascript">
-  var socketHost = '{{socketHost}}'
-  var development = '{{development}}'
-  var switches = {}
-  switches.fb = "{{switches.fb}}"
-  switches.geocode = "{{switches.geocode}}"
-  switches.mobozi = "{{switches.mobozi}}"
+    var socketHost = '{{socketHost}}'
+    var development = '{{development}}'
+    var switches = {}
+    switches.fb = "{{switches.fb}}"
+    switches.geocode = "{{switches.geocode}}"
+    switches.mobozi = "{{switches.mobozi}}"
   </script>
-  <script data-main="/app/js/main" src="../../app/js/lib/require/require.js"></script>
+  <script src="../../app/js/lib/require/require.js"></script>
 </head>
 <body class="cbp-spmenu-push" id="lynd">
-  <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="leftMenu" ui-view="menu">
-  </nav>
-  <div class="header navbar pan" ui-view="header">
-  </div>
-  <div class="content" ui-view="content">
 
-  </div>
-  <div class="footer navbar" ui-view="footer">
-  </div>
-  <div id="fb-root"></div>
-  <script type="text/javascript">
+<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="leftMenu" ui-view="menu"></nav>
+<div class="header navbar pan" ui-view="header"></div>
+<div class="content" ui-view="content"></div>
+<div class="footer navbar" ui-view="footer"></div>
+
+<script type="text/javascript" src="../../app/js/lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../app/js/lib/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../app/js/lib/underscore/underscore-local.js"></script>
+<script type="text/javascript" src="../../app/js/lib/angular/angular.min.js"></script>
+<script type="text/javascript" src="../../app/js/lib/angular/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3&sensor=false"></script>
+<script type="text/javascript" src="../../app/js/main.js"></script>
+
+<div id="fb-root"></div>
+<script type="text/javascript">
   var fbisLoaded = false
   window.fbAsyncInit = function () {
-    FB.init({
-      appId: '{{facebookAppId}}', // App ID
-      channelUrl: '//{{httpHost}}/channel.html', // Channel File
-      status: true, // check login status
-      cookie: true, // enable cookies to allow the server to access the session
-      xfbml: true  // parse XFBML
+    FB.init ({
+      appId: '{{facebookAppId}}',
+      channelUrl: '//{{httpHost}}/channel.html',
+      status: true,
+      cookie: true,
+      xfbml: true
     })
     fbisLoaded = true;
   };
-
-  // Load the SDK Asynchronously
   (function (d) {
-    var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0]
-    if (d.getElementById(id)) {
+    var js, id = 'facebook-jssdk', ref = d.getElementsByTagName ('script')[0]
+    if (d.getElementById (id)) {
       return
     }
-    js = d.createElement('script');
+    js = d.createElement ('script');
     js.id = id;
     js.async = true
     js.src = "//connect.facebook.net/en_US/all.js"
-    ref.parentNode.insertBefore(js, ref)
-  }(document))
+    ref.parentNode.insertBefore (js, ref)
+  } (document))
 
-  </script>
-  <script>
-    (function(i,s,o,g,r,a,m){
-      i['GoogleAnalyticsObject']=r;
-      i[r]= i[r] || function() {
-        (i[r].q=i[r].q||[]).push(arguments)
-      },
-          i[r].l=1*new Date();
-      a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];
-      a.async=1;
-      a.src=g;
-      m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+</script>
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push (arguments)
+    },
+        i[r].l = 1 * new Date ();
+    a = s.createElement (o),
+        m = s.getElementsByTagName (o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore (a, m)
+  }) (window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-41987251-1', 'lynd.me');
-    ga('send', 'pageview');
-  </script>
+  ga ('create', 'UA-41987251-1', 'lynd.me');
+  ga ('send', 'pageview');
+</script>
 </body>
 </html>

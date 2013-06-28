@@ -1,4 +1,4 @@
-define (['angular', 'socket'], function (angular, sock) {
+define ([], function () {
   'use strict'
 
   function read_cookie (key) {
@@ -149,7 +149,6 @@ define (['angular', 'socket'], function (angular, sock) {
         },
 
         convertFacebookProfile: function (fb, auth) {
-//          console.log ('convertFacebookProfile', fb)
           var userProfile = {
             id: fb.id,
             username: fb.username,

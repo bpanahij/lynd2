@@ -1,7 +1,6 @@
-define (['angular'], function (angular, filters, services, directives, controllers) {
+define ([], function () {
   'use strict'
   var Lynd = Lynd || {}
-//  Lynd.Constants = angular.module ('Lynd.constants', []);
   Lynd.Services = angular.module ('Lynd.services', [])
   Lynd.Controllers = angular.module ('Lynd.controllers', [])
   Lynd.Filters = angular.module ('Lynd.filters', [])
