@@ -8,8 +8,8 @@ define ([], function () {
       };
     }])
     .filter ('quiverPlaceholdIt', [function () {
-      return function (img, size) {
-        return img && img || '/assets/img/quiver.png'
+      return function (img, placeholder) {
+        return img && img || placeholder
       }
     }])
     .filter ('wholeDollar', [function () {

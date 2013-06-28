@@ -16,7 +16,6 @@ require.config ({
 });
 
 require ([
-//  'angular',
   'app',
   'async',
   'services',

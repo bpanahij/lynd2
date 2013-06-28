@@ -16,6 +16,7 @@ define ([], function () {
     $scope.choosePhotos = function () {
       fp.uploadMultiple(600, 400, function() {}, function(err, photosArr) {
         $scope.photos = photosArr;
+        $scope.$apply();
       })
     }
     $scope.saveListing = function () {

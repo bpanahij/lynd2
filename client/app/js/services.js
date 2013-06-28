@@ -163,7 +163,7 @@ define ([], function () {
             password: '',
             email: fb.email,
             phone: '',
-            image: 'https://graph.facebook.com/'+ fb.username +'/picture?type=large',
+            image: 'https://graph.facebook.com/' + fb.username + '/picture?type=large',
             about: '',
             location: fb.location && fb.location.name,
             token: auth ? auth.accessToken : null,
@@ -192,15 +192,15 @@ define ([], function () {
       }
       return sideMenu;
     }])
-    .factory ('auth', ['user','facebook', function(user, facebook) {
+    .factory ('auth', ['user', 'facebook', function (user, facebook) {
       return {
-        getUser: function(callback) {
-          user.getUserProfileByFacebookId(true, function(err, userProfile) {
-            if(userProfile) {
-              callback(null, userProfile);
+        getUser: function (callback) {
+          user.getUserProfileByFacebookId (true, function (err, userProfile) {
+            if (userProfile) {
+              callback (null, userProfile);
               return
             }
-            facebook.loginWithFacebook(callback)
+            facebook.loginWithFacebook (callback)
           })
         }
       }
@@ -213,17 +213,17 @@ define ([], function () {
         getFromUserStore: function (key) {
           return userStore[key]
         },
-        isUserRegistered: function() {
+        isUserRegistered: function () {
           return read_cookie ('user_id')
         },
         getCachedUser: function () {
           return userStore.users[read_cookie ('user_id')]
         },
-        setCachedUser: function(profile) {
+        setCachedUser: function (profile) {
           userStore.users[read_cookie ('user_id')] = profile
         },
         getUserProfileByFacebookId: function (fromCache, callback) {
-          var facebookId = read_cookie('user_id')
+          var facebookId = read_cookie ('user_id')
           // Get userInfo from cache
           if (fromCache && ! _.isEmpty (userStore.users[facebookId])) {
             callback (null, userStore.users[facebookId])
@@ -402,42 +402,40 @@ define ([], function () {
 
       return new GEO ()
     }])
-    .factory ('filepicker', [function () {
+    .factory ('filepicker', ['async', function (async) {
 
       var filePicker = {
         uploadMultiple: function (width, height, progressCallback, callback) {
-          require ([], function () {
-            var photos = []
-            var resizeImage = function(image, callback) {
-              filepicker.convert (image, {
-                  width: width,
-                  height: height,
-                  fit: 'max'
-                },
-                function (resizedImage) {
-                  callback(null, resizedImage)
-                }
-              )
-            }
-            var storeImage = function(image, callback) {
-              filepicker.store (image, function (FPFile) {
-                callback(null, FPFile.url)
-              }, function (FPError) {
-                callback (FPError, photos)
-              }, function (progress) {
-                progressCallback (progress)
-              })
-            }
-            var resizeAndStoreImage = function(image, callback) {
-              resizeImage(image, function(err, resizedImage) {
-                storeImage(resizedImage, callback)
-              })
-            }
-            filepicker.setKey ('AkKd1EC5mTSiABybvVCKjz')
-            filepicker.pickMultiple (function (images) {
-              async.map(images, resizeAndStoreImage, function(err, storedImages) {
-                callback(null, storedImages)
-              })
+          var photos = []
+          var resizeImage = function (image, callback) {
+            filepicker.convert (image, {
+                width: width,
+                height: height,
+                fit: 'max'
+              },
+              function (resizedImage) {
+                callback (null, resizedImage)
+              }
+            )
+          }
+          var storeImage = function (image, callback) {
+            filepicker.store (image, function (FPFile) {
+              callback (null, FPFile.url)
+            }, function (FPError) {
+              callback (FPError, photos)
+            }, function (progress) {
+              progressCallback (progress)
+            })
+          }
+          var resizeAndStoreImage = function (image, callback) {
+            resizeImage (image, function (err, resizedImage) {
+              storeImage (resizedImage, callback)
+            })
+          }
+          filepicker.setKey ('AkKd1EC5mTSiABybvVCKjz')
+          filepicker.pickMultiple (function (images) {
+            async.map (images, resizeAndStoreImage, function (err, storedImages) {
+              callback (null, storedImages)
             })
           })
         }
@@ -446,11 +444,14 @@ define ([], function () {
     }])
     .factory ('googleAnalytics', [function () {
       return {
-        listenTrack: function($scope, $window) {
-          $scope.$on('$viewContentLoaded', function(event) {
-            $window._gaq.push(['_trackPageview', $location.path()]);
+        listenTrack: function ($scope, $window) {
+          $scope.$on ('$viewContentLoaded', function (event) {
+            $window._gaq.push (['_trackPageview', $location.path ()]);
           });
         }
       }
     }])
+    .factory ('async', function () {
+      return window.async;
+    });
 })

@@ -1,6 +1,6 @@
 <div class="well">
   <form ng-submit="saveListing()" class="form-horizontal">
-    <a class="btn" type="button" ng-click="choosePhotos()"><img src="/assets/img/horizontal_board.jpg">
+    <a class="btn" type="button" ng-click="choosePhotos()"><img ng-src="{{photos[0] | quiverPlaceholdIt: '/assets/img/horizontal_board.jpg'}}">
  </a>
     <div class="input-row">
       <input ng-model="title" id="inputTitle" type="text" class="input-xlarge" placeholder="Item Title">
@@ -30,13 +30,6 @@
     <br>
     <div class="input-row">
       <textarea ng-model="description" class="input-block-level" rows="5" placeholder="Tell us about your board!"></textarea>
-    </div>
-    <div class="slider">
-      <ul>
-        <li ng-repeat="photo in photos">
-          <img height="200px" ng-src="{{photo}}">
-        </li>
-      </ul>
     </div>
     <a class="btn btn-primary btn-large btn-block" ng-click="saveListing()">Submit</a>
   </form>
