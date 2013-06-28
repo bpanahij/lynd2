@@ -14,17 +14,17 @@ require.config ({
     'angular'
   ]
 });
-
-require ([
-  'app',
-  'async',
-  'services',
-  'controllers',
-  'filters',
-  'directives',
-  'socket',
-], function (app) {
-  $ (document).ready (function () {
-    angular.bootstrap (document.getElementById ('lynd'), ['Lynd']);
-  })
-});
+//
+//require ([
+//  'app',
+//  'async',
+//  'services',
+//  'controllers',
+//  'filters',
+//  'directives',
+//  'socket',
+//], function (app) {
+//  $ (document).ready (function () {
+//    angular.bootstrap (document.getElementById ('lynd'), ['Lynd']);
+//  })
+//});

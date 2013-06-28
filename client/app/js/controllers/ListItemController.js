@@ -31,8 +31,8 @@ define ([], function () {
         value: $scope.value
       }
       listings.add (listing, function () {
-        $location.path('/quiver')
-        $scope.$apply ()
+        $location.path('/quiver');
+        $scope.$apply ();
       })
     }
   }]

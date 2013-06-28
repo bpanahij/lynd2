@@ -1,4 +1,4 @@
-define ([], function () {
+//define ([], function () {
   'use strict';
 
   angular.module ('Lynd.filters', ['Lynd.services'])
@@ -38,4 +38,4 @@ define ([], function () {
         return filteredListings
       }
     }]);
-});
+//});

@@ -1,7 +1,7 @@
-define ([], function () {
+//define ([], function () {
   'use strict';
 
-  return angular.module ('Lynd.controllers', ['Lynd.services'])
+  angular.module ('Lynd.controllers', ['Lynd.services'])
     .controller ('IndexController', ['$scope', '$state', 'user', function ($scope, $state, user) {
       if(user.isUserRegistered()) {
         $state.transitionTo ('quiver');
@@ -91,4 +91,4 @@ define ([], function () {
         angular.injector (['ng', 'Lynd.services']).invoke (ReservationController, this, {'$scope': $scope});
       });
     }]);
-});
+//});

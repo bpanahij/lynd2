@@ -1,5 +1,5 @@
 define ([], function () {
   return ['$rootScope', function ($rootScope) {
-    $rootScope.searchString = ''
+    $rootScope.searchString = '';
   }]
 })
