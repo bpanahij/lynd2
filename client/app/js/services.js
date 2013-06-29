@@ -184,10 +184,8 @@ angular.module ('Lynd.services', [])
         sideMenu.$menuLeft.toggleClass ('cbp-spmenu-open');
       },
       invoke: function () {
-        sideMenu.$menuLeft = angular.element (leftMenu)
-        sideMenu.$showLeftPush = angular.element (menuButton)
         sideMenu.$body = angular.element (body);
-        sideMenu.$showLeftPush.bind ('click', sideMenu.toggleMenu);
+        sideMenu.$menuLeft = angular.element (leftMenu);
       }
     }
     return sideMenu;

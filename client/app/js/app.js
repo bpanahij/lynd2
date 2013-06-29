@@ -14,7 +14,7 @@ angular.module ('Lynd', ['ui.state', 'Lynd.services', 'Lynd.controllers', 'Lynd.
           templateUrl: "/app/partials/blank.html"
         },
         "header": {
-          controller: 'SearchHeaderController',
+          controller: 'HeaderController',
           templateUrl: "/app/partials/blank.html"
         },
         "footer": {
@@ -54,6 +54,7 @@ angular.module ('Lynd', ['ui.state', 'Lynd.services', 'Lynd.controllers', 'Lynd.
           templateUrl: "/app/partials/menu.html"
         },
         "header": {
+          controller: 'HeaderController',
           templateUrl: "/app/partials/member/listItem/header.html"
         },
         "footer": {
@@ -73,6 +74,7 @@ angular.module ('Lynd', ['ui.state', 'Lynd.services', 'Lynd.controllers', 'Lynd.
           templateUrl: "/app/partials/menu.html"
         },
         "header": {
+          controller: 'HeaderController',
           templateUrl: "/app/partials/member/listings/header.html"
         },
         "footer": {
@@ -92,6 +94,7 @@ angular.module ('Lynd', ['ui.state', 'Lynd.services', 'Lynd.controllers', 'Lynd.
           templateUrl: "/app/partials/menu.html"
         },
         "header": {
+          controller: 'HeaderController',
           templateUrl: "/app/partials/member/listing/header.html"
         },
         "footer": {
@@ -185,6 +188,7 @@ angular.module ('Lynd', ['ui.state', 'Lynd.services', 'Lynd.controllers', 'Lynd.
           templateUrl: "/app/partials/menu.html"
         },
         "header": {
+          controller: 'HeaderController',
           templateUrl: "/app/partials/guest/signup/stepFive/header.html"
         },
         "footer": {

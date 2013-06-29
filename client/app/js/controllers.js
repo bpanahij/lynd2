@@ -9,6 +9,11 @@
         $state.transitionTo ('signup_1');
       }
     }])
+    .controller ('HeaderController', ['$scope', function ($scope) {
+      require (['controllers/menu/HeaderController'], function (HeaderController) {
+        angular.injector (['ng', 'Lynd.services']).invoke (HeaderController, this, {'$scope': $scope});
+      });
+    }])
     .controller ('MenuProviderController', ['$scope', function ($scope) {
       require (['controllers/menu/MenuProviderController'], function (MenuProviderController) {
         angular.injector (['ng', 'Lynd.services']).invoke (MenuProviderController, this, {'$scope': $scope});
