@@ -9,9 +9,9 @@
         $state.transitionTo ('signup_1');
       }
     }])
-    .controller ('HeaderController', ['$scope', function ($scope) {
+    .controller ('HeaderController', ['$scope', '$location', function ($scope, $location) {
       require (['controllers/menu/HeaderController'], function (HeaderController) {
-        angular.injector (['ng', 'Lynd.services']).invoke (HeaderController, this, {'$scope': $scope});
+        angular.injector (['ng', 'Lynd.services']).invoke (HeaderController, this, {'$scope': $scope, '$location': $location});
       });
     }])
     .controller ('MenuProviderController', ['$scope', function ($scope) {
