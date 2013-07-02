@@ -66,6 +66,20 @@ html, body {
     right: auto !important;
 }
 
+.searchResultWell {
+    position:relative;
+    height:130px;
+    background-size: 100%;
+    background-position: center;
+}
+
+.listItemWell {
+    position:relative;
+    height:200px;
+    background-size: 100%;
+    background-position: center;
+}
+
 .listing {
     height: 70px;
 }
@@ -191,7 +205,6 @@ html, body, .content {
 }
 
 .splashOne {
-
     background: url('/assets/img/Hambear.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -210,4 +223,33 @@ html, body, .content {
     color: white;
     box-shadow: 2px 2px 5px black;
     border: none;
+}
+
+.searchHood {
+    height: 70px;
+    position:absolute;
+    top:0px;
+    opacity:0.4;
+    filter:alpha(opacity=40);
+    background-color:black;
+}
+
+.searchHoodText {
+    height: 70px;
+    position:absolute;
+    top:0px;
+    color:white !important;
+    text-shadow: 0px 0px 5px black;
+}
+
+.searchHoodText h7 {
+    font-size: 10px;
+}
+
+.listingPrice {
+    position:absolute;
+    top:0px;
+    right:10px;
+    font-size: 30px;
+    line-height: 40px;
 }

@@ -1,0 +1,31 @@
+.boards {
+    height: 34px;
+}
+.boards a:before {
+    content:"";
+    float:left;
+    margin: 5px;
+    background:url(/assets/img/boardSprites.png);
+    background-size: 400px;
+}
+
+.long a:before {
+    background-position: -154px 0px;
+    width: 120px;
+    height: 34px;
+}
+.fish a:before {
+    background-position: -3px 0px;
+    width: 67px;
+    height: 34px;
+}
+.thruster a:before {
+    background-position: -73px 0px;
+    width: 82px;
+    height: 34px;
+}
+.short a:before {
+    background-position: -270px 0px;
+    width: 97px;
+    height: 34px;
+}

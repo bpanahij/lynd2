@@ -76,9 +76,9 @@
         angular.injector (['ng', 'Lynd.services']).invoke (AccountController, this, {'$scope': $scope});
       });
     }])
-    .controller ('ListingController', ['$scope', '$routeParams', function ($scope, $routeParams) {
+    .controller ('ListingController', ['$scope', '$stateParams', function ($scope, $stateParams) {
       require (['controllers/ListingController'], function (ListingController) {
-        angular.injector (['ng', 'Lynd.services']).invoke (ListingController, this, {'$scope': $scope, '$routeParams': $routeParams});
+        angular.injector (['ng', 'Lynd.services']).invoke (ListingController, this, {'$scope': $scope, '$stateParams': $stateParams});
       });
     }])
     .controller ('ListingsController', ['$scope', '$location', function ($scope, $location) {

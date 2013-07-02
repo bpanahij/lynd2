@@ -62,7 +62,7 @@ angular.module ('Lynd', ['ui.state', 'Lynd.services', 'Lynd.controllers', 'Lynd.
         },
         "content": {
           controller: 'ListItemController',
-          templateUrl: "/app/partials/member/listItem/listItem.html"
+          templateUrl: "/app/partials/member/listItem/content.html"
         }
       }
     })

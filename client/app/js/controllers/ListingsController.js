@@ -4,9 +4,8 @@
 define ([], function () {
   return ['$scope', '$http', '$location', 'listings', 'user', function ($scope, $http, $location, listings, user) {
     $scope.listings = [];
-    $scope.listingDetails = function (id) {
-      $location.path ('/listing/' + id);
-      $scope.$apply ();
+    $scope.listingDetails = function () {
+      $location.path ('/listing/' + this.listing._id);
     }
     $scope.getListings = function () {
       listings.getByUserId (false, user.isUserRegistered (), function (listings) {

@@ -1,0 +1,25 @@
+<div class="well listItemWell pan man" style="background-image: url({{images[0] | quiverPlaceholdIt:'/assets/img/horizontal_board.jpg'}});">
+  <div ng-click="listingDetails()" class="row-fluid">
+    <div class="span12 searchHood">
+    </div>
+    <div class="span12 searchHoodText">
+      <div style="position:absolute;top:0px;left:10px;">
+        <h4 class="man pan">{{listing.title}}</h4>
+        <h7 class="man pan">{{listing.location}}</h7>
+      </div>
+      <h3 class="pan man listingPrice">{{listing.price | wholeDollar}}/day</h3>
+    </div>
+  </div>
+</div>
+<div class="well pan mal">
+  <div ng-model="profile.about" contenteditable="true" class="topContentEditable" style="height:32px" placeholder-text="Your Board's name"></div>
+  <div ng-model="profile.about" contenteditable="true" class="topContentEditable" style="height:32px" placeholder-text="Your Board's name"></div>
+  <div ng-model="profile.yearsSurfing" contenteditable="true" class="bottomContentEditable" style="height:64px" placeholder-text="Info about your board"></div>
+</div>
+<div class="well pam pts mal boards">
+  <span class="mam pull-left">Type</span>
+  <span class="long"><a href="#">Long</a></span>
+  <span class="fish"><a href="#"></a></span>
+  <span class="thruster"><a href="#"></a></span>
+  <span class="short"><a href="#"></a></span>
+</div>

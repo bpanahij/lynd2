@@ -1,15 +1,13 @@
-<div class="well searchResultWell pan man" ng-repeat="listing in listings | filter: searchString" style="position:relative; height:150px; background-image: url({{listing.images[0] | quiverPlaceholdIt:'/assets/img/quiver.png'}}); background-size: 100%; background-position: center;">
-  <div ng-click="listingDetails('{{listing._id}}')" class="row-fluid">
-    <div class="span12" style="height: 70px;position:absolute;top:0px;opacity:0.4;filter:alpha(opacity=40);background-color:black;">
+<div class="well searchResultWell pan man" ng-repeat="listing in listings | filter: searchString" style="background-image: url({{listing.images[0] | quiverPlaceholdIt:'/assets/img/quiver.png'}});">
+  <div ng-click="listingDetails()" class="row-fluid">
+    <div class="span12 searchHood">
     </div>
-    <div class="span12" style="height: 70px;position:absolute;top:0px;color:white;text-shadow: 0px 0px 5px black;">
+    <div class="span12 searchHoodText">
       <div style="position:absolute;top:0px;left:10px;">
-        <h3 class="man pan">{{listing.title}}</h3>
-
-        <p class="man pan">{{listing.location}}</p>
+        <h4 class="man pan">{{listing.title}}</h4>
+        <h7 class="man pan">{{listing.location}}</h7>
       </div>
-
-      <h3 class="pan man" style="position:absolute;top:0px;right:10px;">{{listing.price | wholeDollar}}/day</h3>
+      <h3 class="pan man listingPrice">{{listing.price | wholeDollar}}/day</h3>
     </div>
   </div>
 </div>

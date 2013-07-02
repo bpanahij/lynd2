@@ -2,18 +2,16 @@
   <button id="menuButton" ng-tap="toggleMenu()" class="btn btn-tip pull-left mas"><i class="icon-list icon-large"></i></button>
   <input type="search" class="search-query mas pull-right" style="width: 70%;" ng-model="searchString">
 </div>
-<div id="wrapper" class="content">
-  <div id="scrollable">
-    <div class="well searchResultWell pan man" ng-repeat="listing in listings | filter: searchString" style="position:relative;height:150px;background-image: url({{listing.images[0] | quiverPlaceholdIt:'/assets/img/horizontal_board.jpg'}});background-size:100%;background-position:center;">
-      <div ng-click="listingDetails()" class="row-fluid">
-        <div class="span12" style="height:70px;position:relative;opacity:0.4;filter:alpha(opacity=40);background-color:black;color:white;">
-          <div style="position:absolute;top:0px;left:10px;">
-            <h3 class="man pan">{{listing.title}}</h3>
-            <p class="man pan">{{listing.location}}</p>
-          </div>
-          <h3 class="pan man" style="position:absolute;top:0px;right:10px;">{{listing.price | wholeDollar}}/day</h3>
-        </div>
+<div class="well searchResultWell pan man" ng-repeat="listing in listings | filter: searchString" style="background-image: url({{listing.images[0] | quiverPlaceholdIt:'/assets/img/horizontal_board.jpg'}});">
+  <div ng-click="listingDetails()" class="row-fluid">
+    <div class="span12 searchHood">
+    </div>
+    <div class="span12 searchHoodText">
+      <div style="position:absolute;top:0px;left:10px;">
+        <h4 class="man pan">{{listing.title}}</h4>
+        <h7 class="man pan">{{listing.location}}</h7>
       </div>
+      <h3 class="pan man listingPrice">{{listing.price | wholeDollar}}/day</h3>
     </div>
   </div>
 </div>
