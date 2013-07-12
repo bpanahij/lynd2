@@ -17,42 +17,60 @@
       });
     };
   })
-    .directive ('contenteditable', function () {
-    return {
-      require: 'ngModel',
-      link: function (scope, elm, attrs, ctrl) {
-        // view -> model
-        elm.bind ('blur', function () {
-          scope.$apply (function () {
-            if (elm.html () == '' || elm.html () == '<br>') {
-              ctrl.$setViewValue ('');
-              elm.html (attrs.placeholderText)
-            } else {
-              ctrl.$setViewValue (elm.html ());
-            }
-          });
-        });
-        elm.bind ('focus', function () {
-          scope.$apply (function () {
-            if (elm.html () == attrs.placeholderText) {
-              elm.html ('');
-            }
-          });
-        });
-
-        // model -> view
-        ctrl.$render = function () {
-          if (_.isUndefined (ctrl.$viewValue) || ctrl.$viewValue == '' || ctrl.$viewValue == '<br>') {
-            elm.html (attrs.placeholderText);
-          } else {
-            elm.html (ctrl.$viewValue);
-          }
-        };
-
-        // load init value from DOM
-        ctrl.$setViewValue (elm.html ());
-      }
-    };
+    .directive ('contenteditable', function ()
+	{
+		return {
+			require: 'ngModel',
+			link: function (scope, elm, attrs, ctrl)
+			{
+				elm.html (attrs.placeholdertext);
+				// view -> model
+				elm.bind ('blur',
+					function ()
+					{
+						scope.$apply (function ()
+						{
+							if (elm.html () == '' || elm.html () == '<br>') {
+								ctrl.$setViewValue ('');
+								elm.html (attrs.placeholdertext)
+							}
+							else {
+								var val = elm.html ();
+								if (attrs.contenttype === 'Number') {
+									val = Number (val);
+								}
+								ctrl.$setViewValue (val);
+							}
+						});
+					});
+				elm.bind ('focus',
+					function ()
+					{
+						scope.$apply (function ()
+						{
+							if (elm.html () == attrs.placeholdertext) {
+								elm.html ('');
+							}
+						});
+					});
+				// model -> view
+				ctrl.$render = function ()
+				{
+					if (_.isUndefined (ctrl.$viewValue) || ctrl.$viewValue == '' || ctrl.$viewValue == '<br>') {
+						elm.html (attrs.placeholdertext);
+					}
+					else {
+						elm.html (ctrl.$viewValue);
+					}
+				};
+				// load init value from DOM
+				var val = elm.html ();
+				if (attrs.contenttype === 'Number') {
+					val = Number (val);
+				}
+				ctrl.$setViewValue (val);
+			}
+		};
   })
     .directive ('ngTap', function () {
       return function (scope, element, attrs) {
